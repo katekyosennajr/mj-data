@@ -20,15 +20,29 @@
 <body>
     <div class="container py-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="mb-0">Product List</h2>
+            <h2 class="mb-0">Daftar Produk</h2>
             <a href="<?php echo site_url('products/create'); ?>" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Add New Product
+                <i class="fas fa-plus"></i> Tambah Produk
             </a>
         </div>
+
+        <!-- Include Form Pencarian -->
+        <?php $this->load->view('products/search_form'); ?>
 
         <!-- Tabel Produk -->
         <div class="card shadow-sm">
             <div class="card-body">
+                <?php if(empty($products)): ?>
+                    <div class="text-center py-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/7486/7486744.png" 
+                             alt="No products" style="width: 100px; opacity: 0.5">
+                        <p class="text-muted mt-3">
+                            <?= $this->input->get('search') ? 
+                                'Tidak ada produk yang cocok dengan pencarian Anda.' : 
+                                'Belum ada produk yang ditambahkan.' ?>
+                        </p>
+                    </div>
+                <?php else: ?>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -74,6 +88,7 @@
                         </tbody>
                     </table>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
