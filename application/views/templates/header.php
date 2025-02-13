@@ -53,19 +53,22 @@
         }
         .form-switch .form-check-input {
             width: 3em;
+            height: 1.5em;
             margin-left: -3.5em;
+            background-color: #6c757d;
+            border-color: #6c757d;
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28255, 255, 255, 1%29'/%3e%3c/svg%3e");
             background-position: left center;
-            border-radius: 3em;
-            transition: background-position .15s ease-in-out;
+            border-radius: 2em;
+            transition: all .15s ease-in-out;
+        }
+        .form-switch .form-check-input:focus {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28255, 255, 255, 1%29'/%3e%3c/svg%3e");
         }
         .form-switch .form-check-input:checked {
             background-color: #0d6efd;
             border-color: #0d6efd;
             background-position: right center;
-        }
-        .form-switch .form-check-input:not(:checked) {
-            background-color: #6c757d;
         }
         .form-switch .form-check-input:focus {
             box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
