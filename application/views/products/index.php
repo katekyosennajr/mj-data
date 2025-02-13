@@ -48,11 +48,47 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Product Name</th>
-                                <th>Price</th>
-                                <th>Stock</th>
+                                <th>
+                                    <a href="<?= site_url('products?' . http_build_query(array_merge($_GET, [
+                                        'sort_by' => 'name',
+                                        'sort_order' => ($sort_by === 'name' && $sort_order === 'asc') ? 'desc' : 'asc'
+                                    ]))) ?>" class="text-dark text-decoration-none">
+                                        Nama Produk
+                                        <?php if($sort_by === 'name'): ?>
+                                            <i class="fas fa-sort-<?= $sort_order === 'asc' ? 'up' : 'down' ?>"></i>
+                                        <?php else: ?>
+                                            <i class="fas fa-sort text-muted"></i>
+                                        <?php endif; ?>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="<?= site_url('products?' . http_build_query(array_merge($_GET, [
+                                        'sort_by' => 'price',
+                                        'sort_order' => ($sort_by === 'price' && $sort_order === 'asc') ? 'desc' : 'asc'
+                                    ]))) ?>" class="text-dark text-decoration-none">
+                                        Harga
+                                        <?php if($sort_by === 'price'): ?>
+                                            <i class="fas fa-sort-<?= $sort_order === 'asc' ? 'up' : 'down' ?>"></i>
+                                        <?php else: ?>
+                                            <i class="fas fa-sort text-muted"></i>
+                                        <?php endif; ?>
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="<?= site_url('products?' . http_build_query(array_merge($_GET, [
+                                        'sort_by' => 'stock',
+                                        'sort_order' => ($sort_by === 'stock' && $sort_order === 'asc') ? 'desc' : 'asc'
+                                    ]))) ?>" class="text-dark text-decoration-none">
+                                        Stok
+                                        <?php if($sort_by === 'stock'): ?>
+                                            <i class="fas fa-sort-<?= $sort_order === 'asc' ? 'up' : 'down' ?>"></i>
+                                        <?php else: ?>
+                                            <i class="fas fa-sort text-muted"></i>
+                                        <?php endif; ?>
+                                    </a>
+                                </th>
                                 <th>Status</th>
-                                <th>Actions</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>

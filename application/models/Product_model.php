@@ -9,11 +9,17 @@ class Product_model extends CI_Model {
     }
     
     // Get all products
-    public function get_all_products($search = null) {
+    public function get_all_products($search = null, $sort_by = 'id', $sort_order = 'desc') {
         if ($search) {
             $this->db->like('name', $search);
         }
-        $this->db->order_by('id', 'desc');
+
+        // Validasi kolom yang diizinkan untuk sorting
+        $allowed_columns = ['name', 'price', 'stock', 'id'];
+        $sort_by = in_array($sort_by, $allowed_columns) ? $sort_by : 'id';
+        $sort_order = strtolower($sort_order) === 'asc' ? 'asc' : 'desc';
+
+        $this->db->order_by($sort_by, $sort_order);
         return $this->db->get('products')->result();
     }
     
