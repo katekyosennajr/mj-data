@@ -53,16 +53,43 @@
             
             <div class="col-12">
                 <hr>
-                <div class="d-flex justify-content-end gap-2">
-                    <a href="<?= site_url('products') ?>" class="btn btn-secondary">
-                        <i class="fas fa-arrow-left"></i> Kembali
-                    </a>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-save"></i> Simpan Perubahan
+                <div class="d-flex justify-content-between gap-2">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <i class="fas fa-trash"></i> Hapus Produk
                     </button>
+                    <div class="d-flex gap-2">
+                        <a href="<?= site_url('products') ?>" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Kembali
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Simpan Perubahan
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin menghapus produk "<?= htmlspecialchars($product->name) ?>"?</p>
+                <p class="text-danger"><small>Tindakan ini tidak dapat dibatalkan!</small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <a href="<?= site_url('products/delete/'.$product->id) ?>" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> Hapus
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
