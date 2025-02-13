@@ -10,8 +10,10 @@ class Products extends CI_Controller {
     }
     
     // List all products
-    public function index() {
-        $data['products'] = $this->product_model->get_all_products();
+    public function index()
+    {
+        $search = $this->input->get('search');
+        $data['products'] = $this->product_model->get_all_products($search);
         $this->load->view('products/index', $data);
     }
     

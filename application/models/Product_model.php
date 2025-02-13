@@ -9,7 +9,11 @@ class Product_model extends CI_Model {
     }
     
     // Get all products
-    public function get_all_products() {
+    public function get_all_products($search = null) {
+        if ($search) {
+            $this->db->like('name', $search);
+        }
+        $this->db->order_by('id', 'desc');
         return $this->db->get('products')->result();
     }
     
