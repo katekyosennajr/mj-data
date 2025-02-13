@@ -49,7 +49,7 @@
                                 // Update label
                                 label.textContent = data.new_status ? 'Dijual' : 'Tidak Dijual';
                                 label.className = 'form-check-label status-label-' + productId + 
-                                                (data.new_status ? ' text-success' : ' text-danger');
+                                                (data.new_status ? ' text-primary' : ' text-secondary');
                                 
                                 // Show success message
                                 const alert = document.createElement('div');

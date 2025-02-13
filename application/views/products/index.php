@@ -128,8 +128,9 @@
                                            data-product-id="<?= $product->id ?>"
                                            data-product-name="<?= htmlspecialchars($product->name) ?>"
                                            <?= $product->is_sell ? 'checked' : '' ?>>
-                                    <label class="form-check-label status-label-<?= $product->id ?> <?= $product->is_sell ? 'text-success' : 'text-danger' ?>">
-                                        <?= $product->is_sell ? 'Dijual' : 'Tidak Dijual' ?>
+                                    <label class="form-check-label status-label-<?= $product->id ?> <?= $product->is_sell ? 'text-primary' : 'text-secondary' ?>" 
+                                           for="status_<?= $product->id ?>">
+                                        <small><?= $product->is_sell ? 'Dijual' : 'Tidak Dijual' ?></small>
                                     </label>
                                 </div>
                             </td>

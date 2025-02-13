@@ -46,6 +46,34 @@
             border: none;
             box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
         }
+
+        /* Custom Toggle Switch Styles */
+        .form-switch {
+            padding-left: 3.5em;
+        }
+        .form-switch .form-check-input {
+            width: 3em;
+            margin-left: -3.5em;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28255, 255, 255, 1%29'/%3e%3c/svg%3e");
+            background-position: left center;
+            border-radius: 3em;
+            transition: background-position .15s ease-in-out;
+        }
+        .form-switch .form-check-input:checked {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            background-position: right center;
+        }
+        .form-switch .form-check-input:not(:checked) {
+            background-color: #6c757d;
+        }
+        .form-switch .form-check-input:focus {
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+        .form-switch .form-check-input:not(:checked):focus {
+            box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.25);
+        }
+        
         @media (max-width: 768px) {
             .sidebar {
                 min-height: auto;
