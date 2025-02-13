@@ -122,9 +122,16 @@
                             <td>Rp <?= number_format($product->price, 0, ',', '.') ?></td>
                             <td><?= $product->stock ?></td>
                             <td>
-                                <span class="badge <?= $product->is_sell ? 'bg-success' : 'bg-danger' ?> status-badge">
-                                    <?= $product->is_sell ? 'Dijual' : 'Tidak Dijual' ?>
-                                </span>
+                                <div class="form-check form-switch">
+                                    <input type="checkbox" class="form-check-input toggle-status" 
+                                           id="status_<?= $product->id ?>"
+                                           data-product-id="<?= $product->id ?>"
+                                           data-product-name="<?= htmlspecialchars($product->name) ?>"
+                                           <?= $product->is_sell ? 'checked' : '' ?>>
+                                    <label class="form-check-label status-label-<?= $product->id ?> <?= $product->is_sell ? 'text-success' : 'text-danger' ?>">
+                                        <?= $product->is_sell ? 'Dijual' : 'Tidak Dijual' ?>
+                                    </label>
+                                </div>
                             </td>
                             <td class="text-end">
                                 <div class="btn-group">

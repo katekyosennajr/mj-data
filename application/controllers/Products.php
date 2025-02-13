@@ -113,4 +113,37 @@ class Products extends CI_Controller {
         }
         redirect('products');
     }
+    
+    // Toggle product status
+    public function toggle_status($id)
+    {
+        $product = $this->product_model->get_product($id);
+        if (empty($product)) {
+            $response = [
+                'success' => false,
+                'message' => 'Produk tidak ditemukan!'
+            ];
+        } else {
+            $data = [
+                'is_sell' => !$product->is_sell,
+                'updated_at' => date('Y-m-d H:i:s')
+            ];
+            
+            if ($this->product_model->update_product($id, $data)) {
+                $response = [
+                    'success' => true,
+                    'message' => 'Status produk berhasil diperbarui!',
+                    'new_status' => !$product->is_sell
+                ];
+            } else {
+                $response = [
+                    'success' => false,
+                    'message' => 'Gagal memperbarui status produk!'
+                ];
+            }
+        }
+        
+        header('Content-Type: application/json');
+        echo json_encode($response);
+    }
 }
